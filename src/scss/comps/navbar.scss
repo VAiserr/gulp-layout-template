@@ -1,10 +1,16 @@
+/* -------------------navbar------------------- */
+@import 'navbar_variables';
 .navbar {
+
     .container {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        height: $navbar-height;
 
-        padding: 10px 0;
+        &.active {
+            background-color: #ddd;
+        }
     }
 
     &__logo {
@@ -15,18 +21,53 @@
     }
 
     &__menu {
-        
+        display: flex;
+        height: 50px;
+        @media (max-width: 768px) {
+            display: none;
+        }
+
+        &.active {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: $navbar-height;
+            height: calc(100vh - $navbar-height);
+            width: 100vw;
+            background-color: #333;
+        }
     }
 
     &__link {
         color: aliceblue;
         font-size: 24px;
+        display: flex;
+        align-items: center;
+        text-align: center;
         padding: 0 10px;
         height: 100%;
+        transition: all .1s ease-in-out;
 
         &:hover {
             background-color: #ddd;
             color: black;
+        }
+
+        &.icon {
+            display: none;
+            // padding: 0;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            span{
+                width: 36px;
+                height: 5px;
+                background-color: #616161;
+            }
+
+            @media (max-width: 768px) {
+                display: flex;
+            }
         }
     }
 }
@@ -35,3 +76,5 @@ nav {
     background-color: #333;
 
 }
+
+/* -------------------------------------------- */

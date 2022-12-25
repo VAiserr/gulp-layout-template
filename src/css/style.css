@@ -73,31 +73,74 @@ h1, h2, h3, h4, h5, h6 {
 /*----------------*/
 /*     шрифты     */
 /*----------------*/
+/* -------------------navbar------------------- */
 .navbar .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
+  height: 70px;
+}
+.navbar .container.active {
+  background-color: #ddd;
 }
 .navbar__logo img {
   width: 50px;
   height: auto;
 }
+.navbar__menu {
+  display: flex;
+  height: 50px;
+}
+@media (max-width: 768px) {
+  .navbar__menu {
+    display: none;
+  }
+}
+.navbar__menu.active {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 70px;
+  height: calc(100vh - 70px);
+  width: 100vw;
+  background-color: #333;
+}
 .navbar__link {
   color: aliceblue;
   font-size: 24px;
+  display: flex;
+  align-items: center;
+  text-align: center;
   padding: 0 10px;
   height: 100%;
+  transition: all 0.1s ease-in-out;
 }
 .navbar__link:hover {
   background-color: #ddd;
   color: black;
+}
+.navbar__link.icon {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+}
+.navbar__link.icon span {
+  width: 36px;
+  height: 5px;
+  background-color: #616161;
+}
+@media (max-width: 768px) {
+  .navbar__link.icon {
+    display: flex;
+  }
 }
 
 nav {
   background-color: #333;
 }
 
+/* -------------------------------------------- */
 /*   media requests   */
 .container {
   max-width: 1200px;

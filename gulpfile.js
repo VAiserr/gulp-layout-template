@@ -99,6 +99,7 @@ function js(done) {
                 minimize: true,
             },
         })))
+        .on('error', console.log)
         .pipe(gulpif(!devMod, webpack({
             mode: 'production',
             optimization: {
