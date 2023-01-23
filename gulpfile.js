@@ -19,9 +19,8 @@ import webp from 'gulp-webp';
 import newer from 'gulp-newer';
 import imagemin from 'gulp-imagemin';
 import webphtml  from 'gulp-webp-html-nosvg';
-import ttf2woff2 from 'gulp-ttf2woff2';
-import ttf2woff from 'gulp-ttf2woff';
 import fs from 'fs';
+import fonter from 'gulp-fonter';
 // import imagemin from 'gulp-imagemin';
 
 // 
@@ -73,7 +72,7 @@ function css(done) {
  */
 function html(done) {
     gulp.src(`${paths.src}/index.html`)
-        .pipe(inject(gulp.src([`${paths.src}/components/**.html`]), {
+        .pipe(inject(gulp.src([`${paths.src}/html/**.html`]), {
             starttag: '<!-- inject:{{path}} -->',
             removeTags: true,
             transform: function(filePath, file) {
@@ -130,7 +129,7 @@ function libs(done) {
 }
 
 function images(done) {
-    gulp.src(`${paths.src}/img/*.{jpeg,jpg,png,svg,webp,ico}`)
+    return gulp.src(`${paths.src}/img/*.{jpeg,jpg,png,svg,webp,ico}`)
         .pipe(gulpif(devMod, newer(`${paths.preBuild}/img`)))
         .pipe(gulpif(!devMod, newer(`${paths.build}/img`)))
         .pipe(webp())
@@ -141,13 +140,13 @@ function images(done) {
         .pipe(gulpif(devMod, gulp.dest(`${paths.preBuild}/img`)))
         .pipe(gulpif(!devMod, gulp.dest(`${paths.build}/img`)))
         .pipe(gulpif(devMod, browserSync.stream()));
-    done();
+    // done();
 }
 
 // ========================= Конвертация шрифтов =========================
 export function createFontsScss(done) {
     const fontsScss = `${paths.src}/scss/fonts.scss`;
-    fs.readdir(`${paths.src}/fonts`, (err, files) => {
+    fs.readdir(`${paths.src}/fonts/*.{ttf,otf}`, (err, files) => {
         if (files) {
             fs.writeFile(fontsScss, '/*     шрифты     */\n', (err) => {
                 if (err) return console.log(err);
@@ -234,7 +233,7 @@ export function createFontsScss(done) {
 
                 fs.appendFile(
                     fontsScss,
-                    `@font-face {\n\tfont-family: "${fontName}";\n\tfont-display: swap;\n\tsrc: url("../fonts/${fontFileName}.woff2") format(woff2), url("../fonts/${fontFileName}.woff") format(woff);\n\tfont-weight: ${fontWeight};\n\tfont-style: ${fontStyle};\n}\n\n`,
+                    `@font-face {\n\tfont-family: "${fontName}";\n\tfont-display: swap;\n\tsrc: url("../fonts/${fontFileName}.woff") format(woff);\n\tfont-weight: ${fontWeight};\n\tfont-style: ${fontStyle};\n}\n\n`,
                     (err) => {
                         if (err) return console.log(err);
                     } 
@@ -255,12 +254,10 @@ export function createFontsScss(done) {
 }
 
 function fonts(done) {
-    gulp.src(`${paths.src}/fonts/*.ttf`, {allowEmpty: true})
-        .pipe(ttf2woff())
-        .pipe(gulpif(devMod, gulp.dest(`${paths.preBuild}/fonts`)))
-        .pipe(gulpif(!devMod, gulp.dest(`${paths.build}/fonts`)))
-        .pipe(gulp.src(`${paths.src}/fonts/*.ttf`))
-        .pipe(ttf2woff2())
+    gulp.src(`${paths.src}/fonts/*.{ttf,otf}`, {allowEmpty: true})
+        .pipe(fonter({
+            formats: ['woff']
+        }))
         .pipe(gulpif(devMod, gulp.dest(`${paths.preBuild}/fonts`)))
         .pipe(gulpif(!devMod, gulp.dest(`${paths.build}/fonts`)))
     done();

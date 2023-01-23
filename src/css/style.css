@@ -71,17 +71,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*----------------*/
-/*     шрифты     */
-/*----------------*/
 /* -------------------navbar------------------- */
 .navbar .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 70px;
+  padding: 0;
 }
 .navbar .container.active {
   background-color: #ddd;
+}
+.navbar__logo {
+  padding-left: 10px;
 }
 .navbar__logo img {
   width: 50px;
@@ -90,6 +92,7 @@ h1, h2, h3, h4, h5, h6 {
 .navbar__menu {
   display: flex;
   height: 50px;
+  gap: 20px;
 }
 @media (max-width: 768px) {
   .navbar__menu {
@@ -108,14 +111,14 @@ h1, h2, h3, h4, h5, h6 {
 .navbar__link {
   color: aliceblue;
   font-size: 24px;
+  font-weight: 400;
   display: flex;
   align-items: center;
-  text-align: center;
-  padding: 0 10px;
   height: 100%;
   transition: all 0.1s ease-in-out;
+  padding: 0 10px;
 }
-.navbar__link:hover {
+.navbar__link:hover:not(.icon) {
   background-color: #ddd;
   color: black;
 }
@@ -124,6 +127,7 @@ h1, h2, h3, h4, h5, h6 {
   flex-direction: column;
   justify-content: center;
   gap: 5px;
+  padding-right: 10px;
 }
 .navbar__link.icon span {
   width: 36px;
@@ -142,8 +146,32 @@ nav {
 
 /* -------------------------------------------- */
 /*   media requests   */
+body.blocked {
+  overflow: hidden;
+}
+
 .container {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
   width: 100%;
+  padding: 0 10px;
+}
+
+section {
+  margin-bottom: 100px;
+}
+@media (max-width: 1079.98px) {
+  section {
+    margin-bottom: 50px;
+  }
+}
+@media (max-width: 767.98px) {
+  section {
+    margin-bottom: 25px;
+  }
+}
+
+a.disabled {
+  pointer-events: none;
+  cursor: default;
 }
