@@ -12,7 +12,7 @@ window.onload = (e) => {
         if (window.innerWidth > 767.8) {
             navbarMenu.classList.remove('active');
             navbarContainer.classList.remove('active');
-            body.classList.remove('blocked');
+            document.body.classList.remove('blocked');
         }
     });
     

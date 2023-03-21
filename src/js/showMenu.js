@@ -4,10 +4,10 @@ export default function showMenu(e) {
     if (menu.classList.contains('active')) {
         menu.classList.remove('active');
         container.classList.remove('active');
-        body.classList.remove('blocked');
+        document.body.classList.remove('blocked');
     } else {
         menu.classList.add('active');
         container.classList.add('active');
-        body.classList.add('blocked');
+        document.body.classList.add('blocked');
     }
 }
