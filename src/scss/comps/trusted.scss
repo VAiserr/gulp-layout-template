@@ -1,0 +1,110 @@
+.section {
+    &__trusted {
+        .title-wrapper {
+            padding: 32px 0 0;
+            color: #232427;
+            margin-bottom: 45px;
+        }
+    }
+
+    &__trusted-title {
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 44px;
+        margin-bottom: 15px;
+    }
+
+    &__trusted-subtitle {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 14px;
+        color: $secondaryText;
+    }
+}
+.trusted {
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 30px 20px;
+        @media (max-width: $breakpoint1080) {
+            gap: 20px 15px;
+        }
+        @media (max-width: $breakpoint398) {
+            gap: 15px 10px;
+        }
+    }
+
+    &__item {
+        padding: 20px;
+        width: 255px;
+        background: #fafbfd;
+        border-radius: 4px;
+
+        &:hover {
+            background: #ffffff;
+            box-shadow: 0px 4px 144px rgba(0, 0, 0, 0.04);
+            border-radius: 4px;
+        }
+
+        @media (max-width: $breakpoint1080) {
+            flex: 1 255px;
+            max-width: 300px;
+        }
+
+        @media (max-width: $breakpoint768) {
+            padding: 15px;
+        }
+
+        @media (max-width: $breakpoint398) {
+            flex: 1 100%;
+            max-width: unset;
+            padding: 10px;
+        }
+
+        .wrapper {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+    }
+
+    &__item-img {
+        width: 100%;
+        height: 100%;
+    }
+
+    &__item-name {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 16px;
+
+        color: #232427;
+        margin-bottom: 7px;
+    }
+
+    &__item-social {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        svg.twitter {
+            fill: #5e5c6c;
+        }
+        svg.in {
+            fill: #333033;
+        }
+    }
+
+    &__item-link {
+        transition: 0.2s all ease;
+        &:hover {
+            svg {
+                fill: $primaryBtn;
+            }
+            transform: translate(2px, -2px);
+        }
+    }
+}

@@ -72,7 +72,7 @@ function css(done) {
  */
 function html(done) {
     gulp.src(`${paths.src}/index.html`)
-        .pipe(inject(gulp.src([`${paths.src}/html/**.html`]), {
+        .pipe(inject(gulp.src([`${paths.src}/components/**.html`]), {
             starttag: '<!-- inject:{{path}} -->',
             removeTags: true,
             transform: function(filePath, file) {
@@ -146,7 +146,7 @@ function images(done) {
 // ========================= Конвертация шрифтов =========================
 export function createFontsScss(done) {
     const fontsScss = `${paths.src}/scss/fonts.scss`;
-    fs.readdir(`${paths.src}/fonts/`, (err, files) => {
+    fs.readdir(`${paths.src}/fonts`, (err, files) => {
         if (files) {
             fs.writeFile(fontsScss, '/*     шрифты     */\n', (err) => {
                 if (err) return console.log(err);
@@ -158,7 +158,7 @@ export function createFontsScss(done) {
                 let fontName = fontFileName.split('-')[0];
                 let fontWeight = fontFileName.split('-')[1];
                 let fontStyle = 'normal';
-                switch (fontWeight?.toLowerCase()) {
+                switch (fontWeight.toLowerCase()) {
                     case ('thin' || 'hairline'):
                         fontWeight = '100';
                         break;
@@ -229,8 +229,6 @@ export function createFontsScss(done) {
                         fontWeight = '950';
                         fontStyle = 'italic';
                         break;
-                    default:
-                        continue;
                 }
 
                 fs.appendFile(

@@ -2,15 +2,18 @@
 @import 'fonts';
 @import 'variables';
 
-@import 'components/navbar';
-
-@import 'components/footer';
+@import 'comps/navbar';
+@import 'comps/hero';
+@import 'comps/special';
+@import 'comps/partners';
+@import 'comps/trusted';
+@import 'comps/footer';
 
 /*   media requests   */
-@media (max-width: $breakpoint) {}
+@media (max-width: 768px) {}
 
 body {
-    // font-family: 'Roboto';
+    font-family: 'Metropolis';
 
     &.blocked {
         overflow: hidden;
@@ -22,20 +25,35 @@ body {
     margin: 0 auto;
     width: 100%;
     padding: $containerPadding;
-}
-
-section {
     margin-bottom: 100px; // убрать
     @media (max-width: $breakpoint1080) {
         margin-bottom: 50px;
     }
     @media (max-width: $breakpoint768) {
-        margin-bottom: 25px;
+        margin-bottom: 30px;
     }
+}
+
+section {
+    // #TODO
+    // Добавить margin-bottom по умолчанию
 }
 
 a.disabled {
     pointer-events: none;
     cursor: default;
+}
+
+.btn {
+    border-radius: 4px;
+    color: #fff;
+    background: $primaryBtn;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    transition: .1s all ease;
+    &:hover {
+        background-color: $primaryBtnHover;
+    }
 }
 

@@ -1,0 +1,101 @@
+.special {
+    &__list {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        row-gap: 50px;
+        @media (max-width: $breakpoint768) {
+            row-gap: 35px;
+        }
+
+        @media (max-width: $breakpoint398) {
+            row-gap: 20px;
+        }
+    }
+
+    &__caption {
+        max-width: 346px;
+        &-title {
+            font-weight: 700;
+            font-size: 36px;
+            line-height: 44px;
+            color: $primaryText;
+            margin-bottom: 15px;
+            @media (max-width: $breakpoint768) {
+                font-size: 27px;
+                line-height: 36px;
+            }
+        }
+
+        &-subtitle {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 24px;
+            color: $lightText;
+        }
+    }
+
+    &__step {
+        width: 346px;
+        height: 352px;
+        padding: 60px 40px;
+        border: 1px solid #efeff4;
+        border-radius: 8px;
+
+        @media (max-width: $breakpoint768) {
+            width: auto;
+            flex: 0 1 100%;
+            height: 300px;
+            padding: 50px 35px;
+        }
+
+        @media (max-width: $breakpoint398) {
+            height: 250px;
+            padding: 30px 25px;
+        }
+
+        &-icon {
+            width: 77px;
+            height: 77px;
+            border-radius: 50%;
+            background: #fafbfd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 40px;
+            @media (max-width: $breakpoint768) {
+                margin-bottom: 35px;
+            }
+            @media (max-width: $breakpoint398) {
+                margin-bottom: 30px;
+                width: 55px;
+                height: 55px;
+            }
+        }
+
+        &-name {
+            font-weight: 800;
+            font-size: 18px;
+            line-height: 18px;
+            color: $primaryText;
+            margin-bottom: 16px;
+        }
+
+        &-desc {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 24px;
+            color: $lightText;
+        }
+
+        &:hover {
+            background-color: #fafbfd;
+            .special__step-icon {
+                background: #fff;
+                box-shadow: 0px 6px 15px rgba(35, 36, 39, 0.05);
+            }
+        }
+    }
+}

@@ -1,0 +1,117 @@
+.section {
+    &__footer {
+        background-color: #232427;
+    }
+}
+
+.footer {
+    display: flex;
+    padding: 100px 0 50px;
+    justify-content: space-between;
+    @media (max-width: $breakpoint768) {
+        flex-wrap: wrap;
+        padding: 30px 0;
+    }
+    &__item {
+        color: #fff;
+        width: 350px;
+        @media (max-width: $breakpoint768) {
+            flex: 0 1 100%;
+        }
+    }
+
+    &__logo {
+        font-weight: 800;
+        font-size: 18px;
+        line-height: 18px;
+        margin-bottom: 20px;
+    }
+
+    &__text {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+    &__watermark {
+        margin-top: 96px;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 24px;
+        color: #d6d5df;
+        @media (max-width: $breakpoint768) {
+            margin-top: 12px;
+            line-height: 14px;
+            margin-bottom: 24px;
+        }
+    }
+
+    &__label {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 16px;
+    }
+
+    &__input-panel {
+        border-radius: 4px;
+        width: 344px;
+        background: #ffffff;
+        padding: 8px;
+        margin-top: 12px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        @media (max-width: $breakpoint768) {
+            width: 100%;
+        }
+    }
+
+    &__input {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 14px;
+        padding-left: 32px;
+        flex: 1;
+        @media (max-width: $breakpoint768) {
+            padding-left: 18px;
+        }
+    }
+
+    &__btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    &__media-links {
+        display: flex;
+        margin-top: 32px;   
+        gap: 30px;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        @media (max-width: $breakpoint1080) {
+            justify-content: space-between;
+        }
+
+        @media (max-width: $breakpoint768) {
+            justify-content: center;
+            gap: 10%;
+        }
+    }
+
+    &__media-link {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        background-color: $secondaryText;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        svg {
+            fill: #fff;
+        }
+    }
+}

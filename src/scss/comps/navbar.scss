@@ -1,0 +1,120 @@
+/* -------------------navbar------------------- */
+$navbar-height: 72px;
+.navbar {
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: $navbar-height;
+        // padding: 16px 10px;
+
+        &.active {
+            background-color: #ddd;
+        }
+    }
+
+    &__logo {
+        img {
+            width: 46px;
+            height: auto;
+        }
+    }
+
+    &__menu {
+        align-items: center;
+        gap: 50px;
+        @media (min-width: $navBarBreakpoint) {
+            display: flex;
+        }
+        @media (max-width: $navBarBreakpoint) {
+            display: none;
+        }
+
+        * {
+            transition: .1s all ease;
+        }
+
+        &.active {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            position: absolute;
+            top: $navbar-height;
+            left: 0;
+            height: calc(100vh - $navbar-height);
+            width: 100vw;
+            background-color: #333;
+            z-index: 1;
+            a, svg {
+                color: #fff;
+                fill: #fff;
+            }
+            a:not(:last-child) {
+                width: 100%;
+                justify-content: center;
+            }
+            .btn {
+                background-color: unset;
+                font-weight: 600;
+                &:hover {
+                    color: $primaryBtn;
+                    background-color: unset;
+                }
+            }
+        }
+    }
+
+    &__link {
+        color: $secondaryText;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 14px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        // padding: 0 10px;
+        height: 100%;
+
+        svg {
+            margin-right: 8px;
+            fill: $secondaryText;
+        }
+
+        &:hover {
+            color: $primaryBtn !important;
+            svg {
+                fill: $primaryBtn;
+            }
+        }
+
+        &.icon {
+            display: none;
+            // padding: 0;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            span{
+                width: 36px;
+                height: 5px;
+                background-color: #616161;
+            }
+
+            @media (max-width: $navBarBreakpoint) {
+                display: flex;
+            }
+        }
+
+        .btn {
+            padding: 13px 20px;
+        }
+    }
+}
+
+nav {
+    // background-color: #333;
+
+}
+
+/* -------------------------------------------- */

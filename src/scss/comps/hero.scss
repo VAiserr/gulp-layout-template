@@ -1,0 +1,167 @@
+.section {
+    &__hero {
+        position: relative;
+        img {
+            position: absolute;
+            max-width: 851px;
+            top: 0;
+            right: 0;
+            z-index: -1;
+            @media (max-width: $breakpoint1080) {
+                max-width: 600px;
+            }
+            @media (max-width: $breakpoint768) {
+                max-width: 440px;
+                top: 60px;
+            }
+            @media (max-width: $breakpoint398) {
+                max-width: 380px;
+            }
+        }
+
+        .container {
+            margin-bottom: 200px;
+            @media (max-width: $breakpoint1080) {
+                margin-bottom: 100px;
+            }
+            @media (max-width: $breakpoint768) {
+                margin-bottom: 80px;
+            }
+        }
+    }
+}
+
+.hero {
+    &__panel {
+        margin-bottom: 130px;
+        max-width: 530px;
+        width: auto;
+        @media (max-width: $breakpoint1080) {
+            margin-bottom: 75px;
+        }
+    }
+
+    &__title {
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 62px;
+        color: $primaryText;
+        padding-bottom: 15px;
+        @media (max-width: $breakpoint768) {
+            font-size: 36px;
+            line-height: 48px;
+        }
+        @media (max-width: $breakpoint398) {
+            padding-bottom: 10px;
+        }
+    }
+
+    &__sub-title {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 24px;
+        color: $lightText;
+        padding-bottom: 60px;
+        @media (max-width: $breakpoint398) {
+            padding-bottom: 40px;
+        }
+    }
+
+    &__links {
+        display: block;
+        @media (max-width: $breakpoint398) {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    &__btn {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 4px;
+        background-color: $primaryBtn;
+        padding: 11px 25px;
+        color: #fff;
+        margin-right: 65px;
+        svg {
+            fill: #fff;
+            width: 11.25px;
+            height: 11.25px;
+            margin-left: 10px;
+            transition: 0.2s all ease;
+        }
+        &:hover {
+            svg {
+                transform: translate(3px, -3px);
+            }
+        }
+        @media (max-width: $breakpoint398) {
+            flex: auto;
+            margin-right: 40px;
+        }
+    }
+
+    &__link {
+        font-weight: 400;
+        font-size: 14px;
+        color: $primaryBtn;
+        @media (max-width: $breakpoint1080) {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            background-color: $primaryBtn;
+            padding: 11px 25px;
+            color: #fff;
+            border-radius: 4px;
+            background: $primaryBtn;
+            transition: 0.1s all ease;
+            &:hover {
+                background-color: $primaryBtnHover;
+            }
+            @media (max-width: $breakpoint398) {
+                flex: auto;
+            }
+        }
+    }
+
+    &__stats {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 24px;
+        color: $lightText;
+        max-width: 490px;
+
+        &-title {
+            line-height: 24px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        &-list {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        &-item {
+            .content {
+                font-size: 36px;
+                line-height: 36px;
+                text-align: center;
+                color: $primaryText;
+                margin-bottom: 12px;
+                @media (max-width: $breakpoint398) {
+                    font-size: 28px;
+                    line-height: 28px;
+                }
+            }
+
+            .label {
+                line-height: 14px;
+                color: $secondaryText;
+            }
+        }
+    }
+}
