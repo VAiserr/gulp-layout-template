@@ -285,7 +285,7 @@ function watchSrc() {
     gulp.watch(`${paths.src}/scss/**/*.scss`, convertSaas);
     gulp.watch(`${paths.src}/css/style.css`, css);
     gulp.watch([
-        `${paths.src}/components/*.html`,
+        `${paths.src}/html/*.html`,
         `${paths.src}/index.html`
     ], html);
     gulp.watch(`${paths.src}/js/**.js`, js);

@@ -8,6 +8,7 @@ $navbar-height: 70px;
         align-items: center;
         height: $navbar-height;
         padding: 0;
+        color: aliceblue;
 
         &.active {
             background-color: #ddd;
@@ -15,15 +16,31 @@ $navbar-height: 70px;
     }
 
     &__logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
         padding-left: 10px;
+
+        .img-container {
+            border: 1px solid #666;
+            border-radius: 50%;
+            overflow: hidden;
+        }
         img {
             width: 50px;
             height: auto;
         }
+        h1 {
+            font-size: 24px;
+            font-weight: 400;
+        }
     }
 
     &__menu {
-        display: flex;
+        // display: flex;
+        display: none;
+
         height: 50px;
         gap: 20px;
         @media (max-width: 768px) {
@@ -31,7 +48,9 @@ $navbar-height: 70px;
         }
 
         &.active {
-            display: flex;
+            // display: flex;
+            display: none;
+
             flex-direction: column;
             position: absolute;
             top: $navbar-height;
@@ -42,9 +61,7 @@ $navbar-height: 70px;
     }
 
     &__link {
-        color: aliceblue;
-        font-size: 24px;
-        font-weight: 400;
+        
         display: flex;
         align-items: center;
         height: 100%;
@@ -69,14 +86,14 @@ $navbar-height: 70px;
             }
 
             @media (max-width: 768px) {
-                display: flex;
+                // display: flex;
             }
         }
     }
 }
 
 nav {
-    background-color: #333;
+    background-color: $primary;
 
 }
 

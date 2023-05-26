@@ -1,7 +1,7 @@
 @use 'sass:math';
 // Container & breakponts
 $containerWidth: 1100px;
-$containerPadding: 0 10px;
+$containerPadding: 0 ;
 // $containerSidePadding: math.div($containerPadding, 2);
 $breakpoint1440: 1439.98px;
 $breakpoint1080: 1079.98px;
@@ -12,6 +12,9 @@ $navBarBreakpoint: $breakpoint768;
 $breakpoint: $breakpoint1440;
 
 // colors
+$primary: #333;
+$secondary: #444;
+
 $primaryText: #000;
 $secondaryText: #333;
 $lightText: #999;

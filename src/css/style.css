@@ -51,6 +51,7 @@ button::-moz-focus-inner {
 
 a, a:visited {
   text-decoration: none;
+  color: unset;
 }
 
 a:hover {
@@ -75,8 +76,8 @@ h1, h2, h3, h4, h5, h6 {
 @font-face {
   font-family: "Roboto";
   font-display: swap;
-  src: url("../fonts/Roboto-Bold.woff") format(woff);
-  font-weight: 700;
+  src: url("../fonts/Roboto-Black.woff") format(woff);
+  font-weight: 900;
   font-style: normal;
 }
 @font-face {
@@ -89,23 +90,15 @@ h1, h2, h3, h4, h5, h6 {
 @font-face {
   font-family: "Roboto";
   font-display: swap;
+  src: url("../fonts/Roboto-Bold.woff") format(woff);
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  font-display: swap;
   src: url("../fonts/Roboto-Medium.woff") format(woff);
   font-weight: 500;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Roboto";
-  font-display: swap;
-  src: url("../fonts/Roboto-Black.woff") format(woff);
-  font-weight: 900;
-  font-style: normal;
-}
-/*----------------*/
-@font-face {
-  font-family: "Roboto";
-  font-display: swap;
-  src: url("../fonts/Roboto-Thin.woff") format(woff);
-  font-weight: 100;
   font-style: normal;
 }
 @font-face {
@@ -115,6 +108,14 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
   font-style: normal;
 }
+@font-face {
+  font-family: "Roboto";
+  font-display: swap;
+  src: url("../fonts/Roboto-Thin.woff") format(woff);
+  font-weight: 100;
+  font-style: normal;
+}
+/*----------------*/
 /* -------------------navbar------------------- */
 .navbar .container {
   display: flex;
@@ -122,19 +123,33 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   height: 70px;
   padding: 0;
+  color: aliceblue;
 }
 .navbar .container.active {
   background-color: #ddd;
 }
 .navbar__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
   padding-left: 10px;
+}
+.navbar__logo .img-container {
+  border: 1px solid #666;
+  border-radius: 50%;
+  overflow: hidden;
 }
 .navbar__logo img {
   width: 50px;
   height: auto;
 }
+.navbar__logo h1 {
+  font-size: 24px;
+  font-weight: 400;
+}
 .navbar__menu {
-  display: flex;
+  display: none;
   height: 50px;
   gap: 20px;
 }
@@ -144,7 +159,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 .navbar__menu.active {
-  display: flex;
+  display: none;
   flex-direction: column;
   position: absolute;
   top: 70px;
@@ -153,9 +168,6 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #333;
 }
 .navbar__link {
-  color: aliceblue;
-  font-size: 24px;
-  font-weight: 400;
   display: flex;
   align-items: center;
   height: 100%;
@@ -178,32 +190,26 @@ h1, h2, h3, h4, h5, h6 {
   height: 5px;
   background-color: #616161;
 }
-@media (max-width: 768px) {
-  .navbar__link.icon {
-    display: flex;
-  }
-}
-
 nav {
   background-color: #333;
 }
 
 /* -------------------------------------------- */
 /*   media requests   */
+body {
+  font-family: "Roboto";
+}
 body.blocked {
   overflow: hidden;
 }
 
 .container {
   max-width: 1100px;
-  margin: 0 auto;
+  margin: 0 auto 50px;
   width: 100%;
-  padding: 0 10px;
+  padding: 0;
 }
 
-section {
-  margin-bottom: 100px;
-}
 @media (max-width: 1079.98px) {
   section {
     margin-bottom: 50px;
@@ -213,6 +219,25 @@ section {
   section {
     margin-bottom: 25px;
   }
+}
+
+.page-block {
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+  overflow: hidden;
+}
+.page-block h2 {
+  width: 100%;
+  padding: 10px;
+  background-color: #444;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 400;
+  color: aliceblue;
+}
+.page-block h2 .sharp {
+  font-weight: 700;
+  margin-right: 2px;
 }
 
 a.disabled {
